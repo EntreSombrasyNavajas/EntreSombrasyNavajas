@@ -67,10 +67,14 @@ a {
 
 
 body {
+    margin: auto;
     background-color: black;
     min-height: 100vh;
     font-family: 'Century Gothic', sans-serif;
     color: white;
+    max-width: 500px;
+    display: grid;
+    grid-template-rows: auto auto auto 1fr;
 }
 
 header {
@@ -92,7 +96,7 @@ header {
 .texto {
     text-align: center;
     padding: 2rem 2rem;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 1.5;
 }
 
@@ -127,7 +131,7 @@ footer {
     display: grid;
     grid-template-columns: auto 1fr;
     color: white;
-    font-size: 10px;
+    font-size: 12px;
     align-items: center;
     grid-gap: .3rem;
 }
@@ -136,15 +140,26 @@ footer {
     height: 2rem;
 }
 
+.contact-link > p {
+    font-weight: bolder;
+}
+
 .link-list {
     border-left: white 4px solid;
-    padding-left: .3rem;
+    padding-left: .5rem;
+}
+
+.wrapper-line {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 2rem;
+    align-self: flex-end;
+    justify-self: center;
 }
 
 .line {
     height: 2px;
     width: 100%;
-    margin-top: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.498);
 }
 
@@ -155,5 +170,29 @@ footer {
 
     to {
         width: 4rem;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .logo {
+        height: 3rem;
+        padding: 1rem;
+    }
+
+    .link-background {
+        transform: scale(.7);
+        right: 1rem;
+        bottom: 0rem;
+    }
+    
+}
+
+@media screen and (max-width: 280px) {
+    .texto {
+        font-size: 8px;
+    }
+
+    .contact-link {
+        font-size: 8px;
     }
 }
