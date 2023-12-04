@@ -119,7 +119,7 @@ header {
 
 .manita {
     width: 4rem;
-    animation: manita 1s alternate-reverse infinite;
+    animation: manita .7s alternate-reverse infinite;
 }
 
 
