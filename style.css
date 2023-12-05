@@ -69,7 +69,7 @@ a {
 body {
     margin: auto;
     background-color: black;
-    min-height: 100vh;
+    min-height: 100dvh;
     font-family: 'Century Gothic', sans-serif;
     color: white;
     max-width: 750px;
@@ -152,7 +152,7 @@ footer {
 .wrapper-line {
     width: 100%;
     box-sizing: border-box;
-    padding: 2rem;
+    padding: 4rem 2rem;
     align-self: flex-end;
     justify-self: center;
 }
