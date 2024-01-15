@@ -1,13 +1,35 @@
 import Head from 'next/head';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import HTMLFlipBook from 'react-pageflip';
 
 const MyBook = (props) => {
 
     const book = useRef(null)
+
     const [page, setPage] = useState(0)
+    const [flippingTime, setFlippingTime] = useState(1000)
 
     const totalPage = 98
+
+    useEffect(() => {
+        setTimeout(() => {
+            if (window) {
+
+                if (window.innerWidth < 670) {
+                    book.current.pageFlip().pages.app.setting.flippingTime = 1
+                }
+
+                window.onresize = () => {
+                    if (window.innerWidth < 670) {
+                        book.current.pageFlip().pages.app.setting.flippingTime = 1
+                    } else {
+                        book.current.pageFlip().pages.app.setting.flippingTime = 1000
+                    }
+                }
+            }
+        }, 100);
+    }, [])
+    
 
     const NextPage = () => {
         book.current.pageFlip().flipNext()
@@ -61,7 +83,7 @@ const MyBook = (props) => {
 
                 <div className="content">
                     <main>
-                        <HTMLFlipBook width={486} minWidth={300} height={680} minHeight={420} showCover={true} size="stretch" ref={book} onFlip={onFlip}>
+                        <HTMLFlipBook flippingTime={flippingTime} width={486} minWidth={300} height={680} minHeight={420} showCover={true} size="stretch" ref={book} onFlip={onFlip}>
                             {
                                 Array(totalPage).fill(0).map((_, i) => (
                                     <div className="demoPage" key={i}>
@@ -105,11 +127,6 @@ const MyBook = (props) => {
                 </div>
             </div>
             <style jsx>{`
-
-                :root {
-                    --size: 1;
-                }
-
                 .page {
                     display: grid;
                     align-items: center;
@@ -287,9 +304,9 @@ const MyBook = (props) => {
                 @media screen and (max-width: 670px) {
                     .content {
                         box-sizing: border-box;
-                        width: 100%;
+                        width: 630px;
                     }
-
+                    
                     main {
                         padding-top: 0;
                     }
