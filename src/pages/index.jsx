@@ -31,9 +31,9 @@ const Index = () => {
                         <img src="icon/instagram.svg" alt=""/>
                         <p>@knartsim</p>
                     </a>
-                    <a className="contact-link" href="mailto:karenEmai">
+                    <a className="contact-link" href="mailto:desings.nalliveart@gmail.com">
                         <img src="icon/email.svg" alt=""/>
-                        <p>karenEmai</p>
+                        <p>desings.nalliveart@gmail.com</p>
                     </a>
                 </div>
 
