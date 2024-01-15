@@ -51,7 +51,7 @@ const MyBook = (props) => {
                 <HTMLFlipBook width={482} height={680} ref={book} onFlip={onFlip}>
                     {
                         Array(totalPage).fill(0).map((_, i) => (
-                            <div className="demoPage">
+                            <div className="demoPage" key={i}>
                                 <img src={`/pages/Pedro-Navaja---Entre-Sombras-y-Navajas_${i}.webp`} alt="" />
                             </div>
                         ))
