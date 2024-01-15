@@ -37,11 +37,11 @@ const Index = () => {
             <footer>
                 <div className="link-list">
                     <a className="contact-link" href="https://www.instagram.com/knartsim/" target="_blank" rel="noopener noreferrer">
-                        <img src="img/instagram.svg" alt=""/>
+                        <img src="icon/instagram.svg" alt=""/>
                         <p>@knartsim</p>
                     </a>
                     <a className="contact-link" href="mailto:karenEmai">
-                        <img src="img/email.svg" alt=""/>
+                        <img src="icon/email.svg" alt=""/>
                         <p>karenEmai</p>
                     </a>
                 </div>

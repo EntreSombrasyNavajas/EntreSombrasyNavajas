@@ -52,7 +52,7 @@ const MyBook = (props) => {
                     {
                         Array(totalPage).fill(0).map((_, i) => (
                             <div className="demoPage" key={i}>
-                                <img src={`/pages/Pedro-Navaja---Entre-Sombras-y-Navajas_${i}.webp`} alt="" />
+                                <img src={`pages/Pedro-Navaja---Entre-Sombras-y-Navajas_${i}.webp`} alt="" />
                             </div>
                         ))
                     }
@@ -61,28 +61,28 @@ const MyBook = (props) => {
 
                 <div className="controlls">
                     <button className="first" onClick={toFirst}>
-                        <img className="row-icon" src="/icon/doble-row.svg" alt="" />
+                        <img className="row-icon" src="icon/doble-row.svg" alt="" />
                     </button>
                     <div className="change-page">
                         <span className="number-page number-page-left">{page + 1}</span>
                         <button className="before-page" onClick={PreviewPage}>
-                            <img className="row-icon" src="/icon/row.svg" alt="" />
+                            <img className="row-icon" src="icon/row.svg" alt="" />
                         </button>
                         <button className="next-page" onClick={NextPage}>
-                            <img className="row-icon" src="/icon/row.svg" alt="" />
+                            <img className="row-icon" src="icon/row.svg" alt="" />
                         </button>
                         <span className="number-page number-page-right">{page + 2}</span>
                         <span className="total-page">/ {totalPage}</span>
                     </div>
                     <button className="last" onClick={toLast}>
-                        <img className="row-icon" src="/icon/doble-row.svg" alt="" />
+                        <img className="row-icon" src="icon/doble-row.svg" alt="" />
                     </button>
                 </div>
 
             </div>
             <div className="right">
-                <img className="entre" src="/img/entre.png" alt="" />
-                <img className="logo" src="/img/logo.svg" alt="" />
+                <img className="entre" src="img/entre.png" alt="" />
+                <img className="logo" src="img/logo.svg" alt="" />
             </div>
             <style jsx>{`
                 .main-wrapper {
