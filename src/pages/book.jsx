@@ -7,7 +7,7 @@ const MyBook = (props) => {
     const book = useRef(null)
     const [page, setPage] = useState(0)
 
-    const totalPage = 98
+    const totalPage = 99
 
     const NextPage = () => {
         book.current.pageFlip().flipNext()
@@ -29,61 +29,86 @@ const MyBook = (props) => {
         book.current.pageFlip().flip(totalPage - 1)
     }
 
+    const calculateLeftPage = () => {
+        if (page == 0) {
+            return 1
+        }
+
+        if (page == totalPage - 1) {
+            return totalPage - 1
+        }
+
+        return page
+    }
+
+    const calculateRightPage = () => {
+        if (page == 0) {
+            return 1
+        }
+
+        if (page == totalPage - 1) {
+            return totalPage - 1
+        }
+
+        return page + 1
+    }
 
 
     return (
         <div className="main-wrapper">
+
             <Head>
                 <title>Entre Sombras Y Navajas - Book</title>
-
-                <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-                <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png"/>
-                <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png"/>
-                <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png"/>
-                <link rel="manifest" href="favicon/site.webmanifest"/>
-                <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5"/>
-                <meta name="msapplication-TileColor" content="#da532c"/>
-                <meta name="theme-color" content="#ffffff"/>
             </Head>
+
             <div className="left"></div>
+
             <div className="content">
-            <main>
-                <HTMLFlipBook width={482} height={680} ref={book} onFlip={onFlip}>
-                    {
-                        Array(totalPage).fill(0).map((_, i) => (
-                            <div className="demoPage" key={i}>
-                                <img src={`pages/Pedro-Navaja---Entre-Sombras-y-Navajas_${i}.webp`} alt="" />
-                            </div>
-                        ))
-                    }
-                </HTMLFlipBook>
-            </main>
+                <main>
+                    <HTMLFlipBook width={482} height={680} ref={book} onFlip={onFlip}>
+                        <div></div>
+                        {
+                            Array(totalPage - 1).fill(0).map((_, i) => (
+                                <div className="demoPage" key={i}>
+                                    <img src={`pages/Pedro-Navaja---Entre-Sombras-y-Navajas_${i + 1}.webp`} alt="" />
+                                </div>
+                            ))
+                        }
+                    </HTMLFlipBook>
+                </main>
 
                 <div className="controlls">
                     <button className="first" onClick={toFirst}>
                         <img className="row-icon" src="icon/doble-row.svg" alt="" />
                     </button>
+
                     <div className="change-page">
-                        <span className="number-page number-page-left">{page + 1}</span>
+                        <span className="number-page number-page-left">{calculateLeftPage()}</span>
+
                         <button className="before-page" onClick={PreviewPage}>
                             <img className="row-icon" src="icon/row.svg" alt="" />
                         </button>
+
                         <button className="next-page" onClick={NextPage}>
                             <img className="row-icon" src="icon/row.svg" alt="" />
                         </button>
-                        <span className="number-page number-page-right">{page + 2}</span>
-                        <span className="total-page">/ {totalPage}</span>
+
+                        <span className="number-page number-page-right">{calculateRightPage()}</span>
+
+                        <span className="total-page">/ {totalPage - 1}</span>
                     </div>
+
                     <button className="last" onClick={toLast}>
                         <img className="row-icon" src="icon/doble-row.svg" alt="" />
                     </button>
                 </div>
-
             </div>
+
             <div className="right">
                 <img className="entre" src="img/entre.png" alt="" />
                 <img className="logo" src="img/logo.svg" alt="" />
             </div>
+
             <style jsx>{`
                 .main-wrapper {
                     font-family: 'Century Gothic', sans-serif;
@@ -151,7 +176,7 @@ const MyBook = (props) => {
                     font-size: 1.5rem;
                 }
 
-                .next-page {
+                .next-page .row-icon {
                     transform: rotate(180deg);
                 }
                 
@@ -174,6 +199,9 @@ const MyBook = (props) => {
 
                 .last {
                     justify-self: end;
+                }
+                
+                .last .row-icon {
                     transform: rotate(180deg);
                 }
 
