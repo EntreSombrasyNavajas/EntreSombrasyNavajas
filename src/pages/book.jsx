@@ -61,7 +61,7 @@ const MyBook = (props) => {
 
                 <div className="content">
                     <main>
-                        <HTMLFlipBook width={486} height={680} showCover={true} size="stretch" ref={book} onFlip={onFlip}>
+                        <HTMLFlipBook width={486} minWidth={300} height={680} showCover={true} size="stretch" ref={book} onFlip={onFlip}>
                             {
                                 Array(totalPage).fill(0).map((_, i) => (
                                     <div className="demoPage" key={i}>
@@ -157,7 +157,7 @@ const MyBook = (props) => {
                     right: 0;
                     top: 50%;
                     transform: translateY(-50%);
-                    padding: 1rem;
+                    padding: 1em;
                     font-size: 1.2em;
                 }
 
@@ -176,8 +176,8 @@ const MyBook = (props) => {
                 .number-page {
                     border: 1px solid #fff;
                     border-radius: 0.5rem;
-                    height: 3rem;
-                    width: 3rem;
+                    height: 3em;
+                    width: 3em;
                     display: grid;
                     place-items: center;
                     font-size: 1.5em;
@@ -267,6 +267,7 @@ const MyBook = (props) => {
                     }
 
                     .right {
+                        padding-top: 1rem;
                         grid-row: 1;
                         display: flex;
                         justify-content: space-around;
@@ -287,6 +288,36 @@ const MyBook = (props) => {
                     .content {
                         box-sizing: border-box;
                         width: 100%;
+                    }
+
+                    main {
+                        padding-top: 0;
+                    }
+                }
+
+                @media screen and (max-width: 500px) {
+                    .controlls {
+                        font-size: 10px;
+                    }
+                }
+
+                @media screen and (max-width: 420px) {
+                    .controlls {
+                        font-size: 8px;
+                    }
+
+                    .entre {
+                        width: 12rem;
+                    }
+    
+                    .logo {
+                        width: 4rem;
+                    }
+                }
+
+                @media screen and (max-width: 360px) {
+                    .controlls {
+                        font-size: 7px;
                     }
                 }
             `}</style>
