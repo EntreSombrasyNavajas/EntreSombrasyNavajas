@@ -19,13 +19,13 @@ const Index = () => {
             </Head>
 
             <header>
-                <img className="logo" src="./icon/logo-white.svg" alt=""/>
+                <img className="logo" src="icon/logo-white.svg" alt=""/>
             </header>
             <main>
                 <a className="link" href="https://www.facebook.com/fbcameraeffects/testit/312994871640656/MzYxMmYxOGVkNzA3NzZkYzg5Njc3Y2NiMDVmZWNlNjQ=/?source=test_link" target="_blank" rel="noopener noreferrer">
-                    <img className="main-image" src="./img/pedro-navaja.webp" alt="portada del filtro de pedro Navaja"/>
+                    <img className="main-image" src="img/pedro-navaja.webp" alt="portada del filtro de pedro Navaja"/>
                     <div className="link-background">
-                        <img className="manita" src="./icon/Manita.svg" alt=""/>
+                        <img className="manita" src="icon/Manita.svg" alt=""/>
                     </div>
                 </a>
                 <p className="texto">
@@ -37,11 +37,11 @@ const Index = () => {
             <footer>
                 <div className="link-list">
                     <a className="contact-link" href="https://www.instagram.com/knartsim/" target="_blank" rel="noopener noreferrer">
-                        <img src="./img/instagram.svg" alt=""/>
+                        <img src="img/instagram.svg" alt=""/>
                         <p>@knartsim</p>
                     </a>
                     <a className="contact-link" href="mailto:karenEmai">
-                        <img src="./img/email.svg" alt=""/>
+                        <img src="img/email.svg" alt=""/>
                         <p>karenEmai</p>
                     </a>
                 </div>
