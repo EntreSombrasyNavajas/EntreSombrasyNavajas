@@ -40,9 +40,9 @@ const Index = () => {
                         <img src="./img/instagram.svg" alt=""/>
                         <p>@knartsim</p>
                     </a>
-                    <a className="contact-link" href="mailto:karenEmail">
+                    <a className="contact-link" href="mailto:desings.nalliveart@gmail.com">
                         <img src="./img/email.svg" alt=""/>
-                        <p>karenEmail</p>
+                        <p>desings.nalliveart@gmail.com</p>
                     </a>
                 </div>
 
