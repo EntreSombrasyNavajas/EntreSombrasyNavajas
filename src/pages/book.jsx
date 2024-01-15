@@ -304,7 +304,7 @@ const MyBook = (props) => {
                 @media screen and (max-width: 670px) {
                     .content {
                         box-sizing: border-box;
-                        width: 630px;
+                        width: 100%;
                     }
                     
                     main {
