@@ -7,7 +7,7 @@ const MyBook = (props) => {
     const book = useRef(null)
     const [page, setPage] = useState(0)
 
-    const totalPage = 99
+    const totalPage = 98
 
     const NextPage = () => {
         book.current.pageFlip().flipNext()
@@ -34,11 +34,7 @@ const MyBook = (props) => {
             return 1
         }
 
-        if (page == totalPage - 1) {
-            return totalPage - 1
-        }
-
-        return page
+        return page + 1
     }
 
     const calculateRightPage = () => {
@@ -47,81 +43,91 @@ const MyBook = (props) => {
         }
 
         if (page == totalPage - 1) {
-            return totalPage - 1
+            return totalPage
         }
 
-        return page + 1
+        return page + 2
     }
 
 
     return (
-        <div className="main-wrapper">
-
+        <div className="page">
             <Head>
                 <title>Entre Sombras Y Navajas - Book</title>
             </Head>
 
-            <div className="left"></div>
+            <div className="main-wrapper">
+                <div className="left"></div>
 
-            <div className="content">
-                <main>
-                    <HTMLFlipBook width={482} height={680} ref={book} onFlip={onFlip}>
-                        <div></div>
-                        {
-                            Array(totalPage - 1).fill(0).map((_, i) => (
-                                <div className="demoPage" key={i}>
-                                    <img src={`pages/Pedro-Navaja---Entre-Sombras-y-Navajas_${i + 1}.webp`} alt="" />
-                                </div>
-                            ))
-                        }
-                    </HTMLFlipBook>
-                </main>
+                <div className="content">
+                    <main>
+                        <HTMLFlipBook width={486} height={680} showCover={true} size="stretch" ref={book} onFlip={onFlip}>
+                            {
+                                Array(totalPage).fill(0).map((_, i) => (
+                                    <div className="demoPage" key={i}>
+                                        <img src={`pages/Pedro-Navaja---Entre-Sombras-y-Navajas_${i + 1}.webp`} alt="" />
+                                    </div>
+                                ))
+                            }
+                        </HTMLFlipBook>
+                    </main>
 
-                <div className="controlls">
-                    <button className="first" onClick={toFirst}>
-                        <img className="row-icon" src="icon/doble-row.svg" alt="" />
-                    </button>
-
-                    <div className="change-page">
-                        <span className="number-page number-page-left">{calculateLeftPage()}</span>
-
-                        <button className="before-page" onClick={PreviewPage}>
-                            <img className="row-icon" src="icon/row.svg" alt="" />
+                    <div className="controlls">
+                        <button className="first" onClick={toFirst}>
+                            <img className="row-icon" src="icon/doble-row.svg" alt="" />
                         </button>
 
-                        <button className="next-page" onClick={NextPage}>
-                            <img className="row-icon" src="icon/row.svg" alt="" />
+                        <div className="change-page">
+                            <span className="number-page number-page-left">{calculateLeftPage()}</span>
+
+                            <button className="before-page" onClick={PreviewPage}>
+                                <img className="row-icon" src="icon/row.svg" alt="" />
+                            </button>
+
+                            <button className="next-page" onClick={NextPage}>
+                                <img className="row-icon" src="icon/row.svg" alt="" />
+                            </button>
+
+                            <span className="number-page number-page-right">{calculateRightPage()}</span>
+
+                            <span className="total-page">/ {totalPage}</span>
+                        </div>
+
+                        <button className="last" onClick={toLast}>
+                            <img className="row-icon" src="icon/doble-row.svg" alt="" />
                         </button>
-
-                        <span className="number-page number-page-right">{calculateRightPage()}</span>
-
-                        <span className="total-page">/ {totalPage - 1}</span>
                     </div>
+                </div>
 
-                    <button className="last" onClick={toLast}>
-                        <img className="row-icon" src="icon/doble-row.svg" alt="" />
-                    </button>
+                <div className="right">
+                    <img className="entre" src="img/entre.png" alt="" />
+                    <img className="logo" src="img/logo.svg" alt="" />
                 </div>
             </div>
-
-            <div className="right">
-                <img className="entre" src="img/entre.png" alt="" />
-                <img className="logo" src="img/logo.svg" alt="" />
-            </div>
-
             <style jsx>{`
+
+                :root {
+                    --size: 1;
+                }
+
+                .page {
+                    display: grid;
+                    align-items: center;
+                    min-height: 100dvh;
+                    background-image: url('img/fondo.png');
+                    background-size: cover;
+                }
+
                 .main-wrapper {
                     font-family: 'Century Gothic', sans-serif;
-                    background-image: url('img/fondo.png');
-                    min-height: 100vh;
                     display: grid;
                     grid-template-columns: 1fr auto 1fr;
                     color: #fff;
                 }
 
                 .content {
-                    width: 964px;
-                    margin: auto;
+                    width: 972px;
+                    padding: 2rem;
                 }
                 
                 main {
@@ -129,20 +135,21 @@ const MyBook = (props) => {
                 }
 
                 .controlls {
+                    padding: 0 1rem;
                     display: grid;
                     grid-template-columns: 1fr auto 1fr;
                 }
 
                 .change-page {
                     position: relative;
-                    padding: 0 4rem;
+                    padding: 0 4em;
                 }
 
                 .change-page {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    gap: 1rem;
+                    gap: 1em;
                 }
 
                 .total-page {
@@ -151,7 +158,7 @@ const MyBook = (props) => {
                     top: 50%;
                     transform: translateY(-50%);
                     padding: 1rem;
-                    font-size: 1.2rem;
+                    font-size: 1.2em;
                 }
 
                 button {
@@ -163,7 +170,7 @@ const MyBook = (props) => {
                 }
 
                 .row-icon {
-                    height: 2.8rem;
+                    height: 2.8em;
                 }
 
                 .number-page {
@@ -173,7 +180,7 @@ const MyBook = (props) => {
                     width: 3rem;
                     display: grid;
                     place-items: center;
-                    font-size: 1.5rem;
+                    font-size: 1.5em;
                 }
 
                 .next-page .row-icon {
@@ -181,9 +188,9 @@ const MyBook = (props) => {
                 }
                 
                 .entre {
-                    width: 20rem;
+                    width: 18rem;
                     box-sizing: border-box;
-                    padding: 2rem;
+                    padding-right: 2rem;
                 }
 
                 .logo {
@@ -210,6 +217,77 @@ const MyBook = (props) => {
                     display: grid;
                     align-items: center;
                     justify-content: center;
+                }
+
+                @media screen and (max-width: 1330px) {
+                    .content {
+                        width: 800px;
+                    }
+
+                    .entre {
+                        width: 16rem;
+                    }
+    
+                    .logo {
+                        width: 8rem;
+                    }
+                }
+
+                @media screen and (max-width: 1160px) {
+                    .content {
+                        width: 700px;
+                    }
+
+                    .entre {
+                        width: 14rem;
+                    }
+    
+                    .logo {
+                        width: 6rem;
+                    }
+                }
+
+                @media screen and (max-width: 990px) {
+                    .left {
+                        display: none;
+                    }
+
+                    .content {
+                        width: 600px;
+                        margin: auto;
+                        padding: 0 2rem 2rem 2rem;
+                    }
+
+                    .main-wrapper {
+                        grid-template-columns: 1fr;
+                    }
+
+                    .entre {
+                        padding: 1rem;
+                    }
+
+                    .right {
+                        grid-row: 1;
+                        display: flex;
+                        justify-content: space-around;
+                    }
+                    
+                    .logo {
+                        position: relative;
+                        right: 0rem;
+                        bottom: 0rem;
+                    }
+                    
+                    .controlls {
+                        font-size: 12px;
+                    }
+                }
+
+                @media screen and (max-width: 670px) {
+                    .content {
+                        box-sizing: border-box;
+                        width: 100%;
+                    }
                 }
             `}</style>
         </div>
