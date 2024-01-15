@@ -87,7 +87,7 @@ const MyBook = (props) => {
             <style jsx>{`
                 .main-wrapper {
                     font-family: 'Century Gothic', sans-serif;
-                    background-image: url('/img/fondo.png');
+                    background-image: url('img/fondo.png');
                     min-height: 100vh;
                     display: grid;
                     grid-template-columns: 1fr auto 1fr;
