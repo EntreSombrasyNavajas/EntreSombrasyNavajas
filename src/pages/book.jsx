@@ -75,7 +75,7 @@ const MyBook = (props) => {
 
                 <div className="content">
                     <main>
-                        <HTMLFlipBook flippingTime={flippingTime} width={486} minWidth={300} height={680} minHeight={420} showCover={true} size="stretch" ref={book} onFlip={onFlip}>
+                        <HTMLFlipBook flippingTime={1000} width={486} minWidth={300} height={680} minHeight={420} showCover={true} size="stretch" ref={book} onFlip={onFlip}>
                             {
                                 Array(totalPage).fill(0).map((_, i) => (
                                     <div className="demoPage" key={i}>
