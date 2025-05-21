@@ -13,7 +13,7 @@ const Index = () => {
                 <img className="logo" src="icon/logo-white.svg" alt=""/>
             </header>
             <main>
-                <a className="link" href="https://www.facebook.com/fbcameraeffects/testit/312994871640656/MzYxMmYxOGVkNzA3NzZkYzg5Njc3Y2NiMDVmZWNlNjQ=/?source=test_link" target="_blank" rel="noopener noreferrer">
+                <a className="link" href="https://drive.google.com/drive/folders/1rwqLPQkA8rmb9-ItdyQqrFMP8gy8VNMc?usp=sharing" target="_blank" rel="noopener noreferrer">
                     <img className="main-image" src="img/pedro-navaja.webp" alt="portada del filtro de pedro Navaja"/>
                     <div className="link-background">
                         <img className="manita" src="icon/Manita.svg" alt=""/>
